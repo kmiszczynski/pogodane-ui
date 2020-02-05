@@ -9,12 +9,14 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { CityWeatherComponent } from './components/city-weather/city-weather.component';
 import { HomeComponent } from './components/home/home.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CityWeatherComponent,
-    HomeComponent
+    HomeComponent,
+    SearchBarComponent
   ],
   imports: [
     MatFormFieldModule,
