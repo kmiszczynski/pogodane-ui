@@ -1,0 +1,36 @@
+export class MonthlyData {
+  id: string;
+  cityTechnicalId: string;
+  cityName: string;
+  stationsUsed: string[];
+  year: string;
+  month: string;
+  rainfallAmount: number;
+  rainfallAmountMeasured: boolean;
+  daysWithSnow: number;
+  maximumRainfallAmount: number;
+  maximumRainfallAmountMeasured: boolean;
+  maximumTemperature: number;
+  maximumTemperatureMonth: string;
+  maximumTemperatureMeasured: boolean;
+  minimumTemperature: number;
+  minimumTemperatureMeasured: boolean;
+  averageTemperature: number;
+  averageTemperatureMeasured: boolean;
+  averageMaximumTemperature: number;
+  averageMaximumTemperatureMeasured: boolean;
+  averageMinimumTemperature: number;
+  averageMinimumTemperatureMeasured: boolean;
+  averageHumidity: number;
+  averageHumidityMeasured: boolean;
+  averageWindSpeed: number;
+  averageWindSpeedMeasured: boolean;
+  averageCloudiness: number;
+  averageCloudinessMeasured: boolean;
+  maximumSnowHeight: number;
+  maximumSnowHeightMeasured: boolean;
+  daysWithSnowSurface: number;
+  daysWithRain: number;
+  averageAirPressure: number;
+  averageAirPressureMeasured: boolean;
+}

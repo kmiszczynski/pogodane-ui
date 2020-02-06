@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   apiBaseUrl: 'http://localhost:8080/',
   citiesPath: 'cities',
-  cityPath: 'city'
+  cityPath: 'city',
+  weatherPath: 'weather'
 };
 
 /*
