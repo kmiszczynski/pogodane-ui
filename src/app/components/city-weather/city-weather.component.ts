@@ -17,6 +17,35 @@ export class CityWeatherComponent implements OnInit {
   city: City;
   showAllYears = true;
 
+  // chart options
+  xAxis = true;
+  yAxis = true;
+  showYAxisLabel = true;
+  showXAxisLabel = true;
+  timeline = true;
+  autoscale = true;
+
+  maxTempColorScheme = {
+    domain: ['#a47100']
+  };
+  minTempColorScheme = {
+    domain: ['#002da4']
+  };
+  maxSnowHeightColorScheme = {
+    domain: ['#05a49c']
+  };
+  maxRainfallAmountColorScheme = {
+    domain: ['#0046a4']
+  };
+  daysWithrainColorScheme = {
+    domain: ['#0046a4']
+  };
+  yearlyMaxTempChartData;
+  yearlyMinTempChartData;
+  yearlyMaxSnowHeightChartData;
+  yearlyMaxRainfallAmountChartData;
+  yearlyDaysWithRainChartData;
+
   constructor(private route: ActivatedRoute,
               private staticDataService: StaticDataService,
               private weatherDataService: WeatherDataServiceService) {
@@ -30,6 +59,14 @@ export class CityWeatherComponent implements OnInit {
           this.weatherDataService.getAllYearsCityData(city.technicalId).subscribe(result => {
             this.allYearsCityData = result;
             this.fillYearOptions();
+            this.yearlyMaxTempChartData = this.produceYearlyLineChartData('year', 'maximumTemperature', 'Maksymalna temperatura', true);
+            this.yearlyMinTempChartData = this.produceYearlyLineChartData('year', 'minimumTemperature', 'Minimalna temperatura', true);
+            this.yearlyMaxRainfallAmountChartData = this.produceYearlyLineChartData('year', 'maximumRainfallAmount',
+              'Maksymalny opad dobowy (mm)', true);
+            this.yearlyMaxSnowHeightChartData = this.produceYearlyLineChartData('year', 'maximumSnowHeight',
+              'Max. wys. pokrywy śnieżnej', true);
+            this.yearlyDaysWithRainChartData = this.produceYearlyLineChartData('year', 'daysWithRain',
+              'Dni z opadami', true);
           });
         });
     });
@@ -40,4 +77,21 @@ export class CityWeatherComponent implements OnInit {
     this.yearOptions.sort();
   }
 
+  produceYearlyLineChartData(xProperty: string, yProperty: string, valueDescription: string, dropOnZeroValue: boolean) {
+    const result = [
+      {
+        name: valueDescription,
+        series: []
+      }
+    ];
+    this.allYearsCityData.yearlyCityData.forEach(cityData => {
+      if (!dropOnZeroValue || cityData[yProperty]) {
+        result[0].series.push({
+          name: cityData[xProperty],
+          value: cityData[yProperty]
+        });
+      }
+    });
+    return result;
+  }
 }

@@ -17,6 +17,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { CityWeatherComponent } from './components/city-weather/city-weather.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

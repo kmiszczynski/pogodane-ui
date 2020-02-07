@@ -1,6 +1,6 @@
 <app-search-bar *ngIf="city" [selectedCityName]="city.name"></app-search-bar>
-<div class="container">
-  <div *ngIf="allYearsCityData">
+<div class="container" *ngIf="allYearsCityData">
+  <div>
     <h3>Miejscowość: <span class="font-weight-bold">{{city.name}}</span></h3>
     <mat-form-field class="w-50">
       <mat-select placeholder="Wybierz rok z listy">
@@ -11,7 +11,7 @@
   </div>
   <div *ngIf="showAllYears">
     <div class="row">
-      <div class="col-md all-year-info-box max-temp-info-box">
+      <div class="col-md all-year-info-box max-temp-info-box" *ngIf="allYearsCityData.maximumTemperature">
         <div>Maksymalna temperatura: <span class="font-weight-bold">{{allYearsCityData.maximumTemperature}} &deg;C</span>
         </div>
         <div>Data wystąpienia:
@@ -20,7 +20,7 @@
           </span>
         </div>
       </div>
-      <div class="col-md all-year-info-box min-temp-info-box">
+      <div class="col-md all-year-info-box min-temp-info-box" *ngIf="allYearsCityData.minimumTemperature">
         <div>Minimalna temperatura: <span class="font-weight-bold">{{allYearsCityData.minimumTemperature}} &deg;C</span>
         </div>
         <div>Data wystąpienia:
@@ -30,8 +30,8 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md all-year-info-box max-snow-info-box">
+    <div class="row mb-5 pb-3">
+      <div class="col-md all-year-info-box max-snow-info-box" *ngIf="allYearsCityData.maximumSnowHeight">
         <div>Maksymalna pokrywa śnieżna: <span class="font-weight-bold">{{allYearsCityData.maximumSnowHeight}} cm</span>
         </div>
         <div>Data wystąpienia:
@@ -40,7 +40,7 @@
           </span>
         </div>
       </div>
-      <div class="col-md all-year-info-box max-rainfall-info-box">
+      <div class="col-md all-year-info-box max-rainfall-info-box" *ngIf="allYearsCityData.maximumRainfallAmount">
         <div>Maksymalny opad dobowy: <span class="font-weight-bold">{{allYearsCityData.maximumRainfallAmount}} mm</span>
         </div>
         <div>Data wystąpienia:
@@ -49,6 +49,87 @@
           </span>
         </div>
       </div>
+    </div>
+    <div class="row chart-container" *ngIf="allYearsCityData.maximumTemperature">
+      <ngx-charts-line-chart
+        [view]=""
+        [autoScale]="autoscale"
+        [scheme]="maxTempColorScheme"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxis]="xAxis"
+        [yAxis]="yAxis"
+        xAxisLabel="Rok"
+        yAxisLabel="Temperatura maksymalna &deg;C"
+        [timeline]="timeline"
+        [results]="yearlyMaxTempChartData"
+      >
+      </ngx-charts-line-chart>
+    </div>
+    <div class="row chart-container" *ngIf="allYearsCityData.minimumTemperature">
+      <ngx-charts-line-chart
+        [view]=""
+        [autoScale]="autoscale"
+        [scheme]="minTempColorScheme"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxis]="xAxis"
+        [yAxis]="yAxis"
+        xAxisLabel="Rok"
+        yAxisLabel="Temperatura minimalna &deg;C"
+        [timeline]="timeline"
+        [results]="yearlyMinTempChartData"
+      >
+      </ngx-charts-line-chart>
+    </div>
+    <div class="row chart-container" *ngIf="allYearsCityData.maximumSnowHeight">
+      <ngx-charts-line-chart
+        [view]=""
+        [autoScale]="autoscale"
+        [scheme]="maxSnowHeightColorScheme"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxis]="xAxis"
+        [yAxis]="yAxis"
+        xAxisLabel="Rok"
+        yAxisLabel="Maks. wys. pokrywy śnieżnej (cm)"
+        [timeline]="timeline"
+        [results]="yearlyMaxSnowHeightChartData"
+      >
+      </ngx-charts-line-chart>
+    </div>
+    <div class="row chart-container" *ngIf="allYearsCityData.maximumRainfallAmount">
+      <ngx-charts-line-chart
+        [view]=""
+        [autoScale]="autoscale"
+        [scheme]="maxRainfallAmountColorScheme"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxis]="xAxis"
+        [yAxis]="yAxis"
+        xAxisLabel="Rok"
+        yAxisLabel="Maksymalny opad dobowy (mm)"
+        [timeline]="timeline"
+        [results]="yearlyMaxRainfallAmountChartData"
+      >
+      </ngx-charts-line-chart>
+    </div>
+
+    <div class="row chart-container" *ngIf="yearlyDaysWithRainChartData[0].series.length > 0">
+      <ngx-charts-line-chart
+        [view]=""
+        [autoScale]="autoscale"
+        [scheme]="daysWithrainColorScheme"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxis]="xAxis"
+        [yAxis]="yAxis"
+        xAxisLabel="Rok"
+        yAxisLabel="Dni z opadami"
+        [timeline]="timeline"
+        [results]="yearlyDaysWithRainChartData"
+      >
+      </ngx-charts-line-chart>
     </div>
   </div>
 </div>

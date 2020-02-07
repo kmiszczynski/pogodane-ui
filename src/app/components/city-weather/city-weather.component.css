@@ -23,3 +23,7 @@
 .max-rainfall-info-box {
   background-color: rgba(0,135,243,0.15);
 }
+
+.chart-container {
+  height: 400px;
+}
