@@ -34,7 +34,7 @@ export class CityWeatherComponent implements OnInit {
   avgTempColorScheme = {
     domain: ['#a44600']
   };
-  maxSnowHeightColorScheme = {
+  snowColorScheme = {
     domain: ['#05a49c']
   };
   maxRainfallAmountColorScheme = {
@@ -49,6 +49,7 @@ export class CityWeatherComponent implements OnInit {
   yearlyMaxRainfallAmountChartData;
   yearlyDaysWithRainChartData;
   yearlyAverageTempChartData;
+  yearlyDaysWithSnowChartData;
 
   constructor(private route: ActivatedRoute,
               private staticDataService: StaticDataService,
@@ -73,6 +74,8 @@ export class CityWeatherComponent implements OnInit {
               'Dni z opadami', true);
             this.yearlyAverageTempChartData = this.produceYearlyLineChartData('year', 'averageTemperature',
               'Średnia temperatura', true);
+            this.yearlyDaysWithSnowChartData = this.produceYearlyLineChartData('year', 'daysWithSnow',
+              'Dni z opadami śniegu', true);
           });
         });
     });
