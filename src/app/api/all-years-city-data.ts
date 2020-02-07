@@ -14,4 +14,7 @@ export class AllYearsCityData {
   maximumRainfallAmount: number;
   maximumRainfallAmountYear: string;
   maximumRainfallAmountMonth: string;
+  averageTemperature: number;
+  maximumYearlyRainfallAmount: number;
+  maximumYearlyRainfallAmountYear: string;
 }

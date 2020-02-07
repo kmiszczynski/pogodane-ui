@@ -45,6 +45,7 @@ export class CityWeatherComponent implements OnInit {
   yearlyMaxSnowHeightChartData;
   yearlyMaxRainfallAmountChartData;
   yearlyDaysWithRainChartData;
+  yearlyAverageTempChartData;
 
   constructor(private route: ActivatedRoute,
               private staticDataService: StaticDataService,
@@ -67,6 +68,8 @@ export class CityWeatherComponent implements OnInit {
               'Max. wys. pokrywy śnieżnej', true);
             this.yearlyDaysWithRainChartData = this.produceYearlyLineChartData('year', 'daysWithRain',
               'Dni z opadami', true);
+            this.yearlyAverageTempChartData = this.produceYearlyLineChartData('year', 'averageTemperature',
+              'Średnia temperatura', true);
           });
         });
     });

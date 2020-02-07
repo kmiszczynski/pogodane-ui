@@ -6,10 +6,15 @@
   padding: 10px;
   margin: 10px;
   border-radius: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .max-temp-info-box {
   background-color: rgba(211, 112, 34, 0.1);
+}
+
+.avg-temp-info-box {
+  background-color: rgba(251, 27, 0, 0.15);
 }
 
 .min-temp-info-box {
