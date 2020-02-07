@@ -92,11 +92,11 @@
       >
       </ngx-charts-line-chart>
     </div>
-    <div class="row chart-container" *ngIf="allYearsCityData.minimumTemperature">
+    <div class="row chart-container" *ngIf="allYearsCityData.averageTemperature">
       <ngx-charts-line-chart
         [view]=""
         [autoScale]="autoscale"
-        [scheme]="maxTempColorScheme"
+        [scheme]="avgTempColorScheme"
         [showXAxisLabel]="showXAxisLabel"
         [showYAxisLabel]="showYAxisLabel"
         [xAxis]="xAxis"

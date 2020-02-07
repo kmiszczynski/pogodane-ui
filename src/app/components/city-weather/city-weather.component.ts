@@ -26,10 +26,13 @@ export class CityWeatherComponent implements OnInit {
   autoscale = true;
 
   maxTempColorScheme = {
-    domain: ['#a47100']
+    domain: ['#a40900']
   };
   minTempColorScheme = {
     domain: ['#002da4']
+  };
+  avgTempColorScheme = {
+    domain: ['#a44600']
   };
   maxSnowHeightColorScheme = {
     domain: ['#05a49c']
