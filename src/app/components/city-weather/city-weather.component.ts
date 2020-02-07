@@ -61,9 +61,9 @@ export class CityWeatherComponent implements OnInit {
       this.staticDataService.getCity(params.get('city'))
         .subscribe(city => {
           this.city = city;
+          this.weatherDataService.getAvailableYearsForCity(city.technicalId).subscribe(years => this.yearOptions = years.years);
           this.weatherDataService.getAllYearsCityData(city.technicalId).subscribe(result => {
             this.allYearsCityData = result;
-            this.fillYearOptions();
             this.yearlyMaxTempChartData = this.produceYearlyLineChartData('year', 'maximumTemperature', 'Maksymalna temperatura', true);
             this.yearlyMinTempChartData = this.produceYearlyLineChartData('year', 'minimumTemperature', 'Minimalna temperatura', true);
             this.yearlyMaxRainfallAmountChartData = this.produceYearlyLineChartData('year', 'maximumRainfallAmount',
@@ -79,11 +79,6 @@ export class CityWeatherComponent implements OnInit {
           });
         });
     });
-  }
-
-  fillYearOptions() {
-    this.allYearsCityData.yearlyCityData.map(yearlyData => this.yearOptions.push(yearlyData.year));
-    this.yearOptions.sort();
   }
 
   produceYearlyLineChartData(xProperty: string, yProperty: string, valueDescription: string, dropOnZeroValue: boolean) {

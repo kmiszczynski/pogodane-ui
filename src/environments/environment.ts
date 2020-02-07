@@ -8,6 +8,7 @@ export const environment = {
   citiesApiPath: 'cities',
   cityApiPath: 'city',
   weatherApiPath: 'weather',
+  availableYearsApiPath: 'availableYears',
   weatherPath: 'pogoda'
 };
 

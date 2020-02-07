@@ -1,4 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {environment} from '../../../environments/environment';
+import {Router} from '@angular/router';
+import {City} from "../../api/city";
 
 @Component({
   selector: 'app-year-selector',
@@ -7,13 +10,17 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class YearSelectorComponent implements OnInit {
 
+  @Input() selectedYear: string;
   @Input() yearOptions: string[];
-  @Input() selectedCity: string;
+  @Input() selectedCity: City;
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
   }
 
+  navigateToYear(event) {
+    this.router.navigate([environment.weatherPath + '/' + this.selectedCity.technicalId + '/' + event]);
+  }
 }

@@ -19,6 +19,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import { YearSelectorComponent } from './components/year-selector/year-selector.component';
+import { CityMonthlyWeatherComponent } from './components/city-monthly-weather/city-monthly-weather.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { YearSelectorComponent } from './components/year-selector/year-selector.
     CityWeatherComponent,
     HomeComponent,
     SearchBarComponent,
-    YearSelectorComponent
+    YearSelectorComponent,
+    CityMonthlyWeatherComponent
   ],
   imports: [
     MatFormFieldModule,

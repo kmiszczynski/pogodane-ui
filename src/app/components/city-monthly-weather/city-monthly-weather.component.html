@@ -1,0 +1,4 @@
+<app-search-bar *ngIf="city" [selectedCityName]="city.name"></app-search-bar>
+<div class="container" *ngIf="city"> <!-- update with weather data -->
+  <app-year-selector [selectedYear]="year" [selectedCity]="city" [yearOptions]="yearOptions"></app-year-selector>
+</div>
