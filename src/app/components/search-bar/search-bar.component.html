@@ -1,0 +1,16 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="ml-3">
+      <div><form class="mt-4">
+        <mat-form-field class="city-picker">
+          <input class="city-picker-select" type="text"  (click)="clearOnChangePrompt()" placeholder="Kliknij, wprowadź i wybierz miejscowość z listy" aria-label="Number" matInput [formControl]="citiesControl" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="citySelected($event)" (opened)="clearOnChangePrompt()">
+            <mat-option *ngFor="let city of filteredCities | async" [value]="city.technicalId">
+              {{city.name}} (woj. {{city.voivodeship}})
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form></div>
+    </div>
+  </div>
+</div>
