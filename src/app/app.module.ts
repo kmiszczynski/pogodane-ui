@@ -18,13 +18,15 @@ import { CityWeatherComponent } from './components/city-weather/city-weather.com
 import { HomeComponent } from './components/home/home.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
+import { YearSelectorComponent } from './components/year-selector/year-selector.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CityWeatherComponent,
     HomeComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    YearSelectorComponent
   ],
   imports: [
     MatFormFieldModule,

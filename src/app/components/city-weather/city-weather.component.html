@@ -1,14 +1,6 @@
 <app-search-bar *ngIf="city" [selectedCityName]="city.name"></app-search-bar>
 <div class="container" *ngIf="allYearsCityData">
-  <div>
-    <h3>Miejscowość: <span class="font-weight-bold">{{city.name}}</span></h3>
-    <mat-form-field class="w-50">
-      <mat-select placeholder="Wybierz rok z listy">
-        <mat-option *ngFor="let option of yearOptions" [value]="option">{{option}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <button mat-button>Powrót do wszystkich lat</button>
-  </div>
+  <app-year-selector [selectedCity]="city.name" [yearOptions]="yearOptions"></app-year-selector>
   <div *ngIf="showAllYears">
     <div class="row">
       <div class="col-md all-year-info-box max-temp-info-box" *ngIf="allYearsCityData.maximumTemperature">

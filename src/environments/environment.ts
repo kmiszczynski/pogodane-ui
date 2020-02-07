@@ -7,7 +7,7 @@ export const environment = {
   apiBaseUrl: 'http://localhost:8080/',
   citiesPath: 'cities',
   cityPath: 'city',
-  weatherPath: 'weather'
+  weatherPath: 'pogoda'
 };
 
 /*

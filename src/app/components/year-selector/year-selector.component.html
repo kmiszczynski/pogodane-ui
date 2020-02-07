@@ -1,0 +1,9 @@
+<div>
+  <h3>Miejscowość: <span class="font-weight-bold">{{selectedCity}}</span></h3>
+  <mat-form-field class="w-50">
+    <mat-select placeholder="Wybierz rok z listy">
+      <mat-option *ngFor="let option of yearOptions" [value]="option">{{option}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-button>Powrót do wszystkich lat</button>
+</div>

@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {StaticDataService} from '../../services/static-data.service';
 import {Router} from '@angular/router';
 import {map} from 'rxjs/operators';
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-search-bar',
@@ -40,7 +41,7 @@ export class SearchBarComponent implements OnInit, OnChanges {
     const selectedCity = event.option.value;
     const selectedCityFullName = this.getCityByTechnicalId(selectedCity).name;
     this.citiesControl.setValue(selectedCityFullName);
-    this.router.navigate(['/weather/' + selectedCity]);
+    this.router.navigate([environment.weatherPath + '/' + selectedCity]);
   }
 
   clearOnChangePrompt() {
