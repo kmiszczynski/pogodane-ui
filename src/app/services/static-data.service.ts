@@ -11,8 +11,8 @@ import {City} from '../api/city';
 export class StaticDataService {
 
   private apiUrl: string = environment.apiBaseUrl;
-  private cityPath: string = environment.cityPath;
-  private citiesPath: string = environment.citiesPath;
+  private cityPath: string = environment.cityApiPath;
+  private citiesPath: string = environment.citiesApiPath;
 
   constructor(private httpClient: HttpClient) {
   }

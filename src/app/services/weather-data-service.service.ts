@@ -10,7 +10,7 @@ import {AllYearsCityData} from '../api/all-years-city-data';
 export class WeatherDataServiceService {
 
   private apiUrl: string = environment.apiBaseUrl;
-  private weatherPath: string = environment.weatherPath;
+  private weatherPath: string = environment.weatherApiPath;
 
   constructor(private httpClient: HttpClient) {
   }

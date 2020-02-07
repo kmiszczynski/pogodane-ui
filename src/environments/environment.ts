@@ -5,8 +5,9 @@
 export const environment = {
   production: false,
   apiBaseUrl: 'http://localhost:8080/',
-  citiesPath: 'cities',
-  cityPath: 'city',
+  citiesApiPath: 'cities',
+  cityApiPath: 'city',
+  weatherApiPath: 'weather',
   weatherPath: 'pogoda'
 };
 
