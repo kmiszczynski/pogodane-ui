@@ -4,6 +4,7 @@ import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
 import {AllYearsCityData} from '../api/all-years-city-data';
 import {AvailableYears} from '../api/available-years';
+import {YearlyWeatherData} from "../api/yearly-weather-data";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,10 @@ export class WeatherDataServiceService {
   private availableYearsPath: string = environment.availableYearsApiPath;
 
   constructor(private httpClient: HttpClient) {
+  }
+
+  getYearlyWeatherData(city: string, year: string): Observable<YearlyWeatherData> {
+    return this.httpClient.get<YearlyWeatherData>(this.apiUrl + this.weatherPath + '/' + city + '/' + year);
   }
 
   getAllYearsCityData(city: string): Observable<AllYearsCityData> {

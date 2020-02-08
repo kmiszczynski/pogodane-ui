@@ -5,5 +5,5 @@
       <mat-option *ngFor="let option of yearOptions" [value]="option">{{option}}</mat-option>
     </mat-select>
   </mat-form-field>
-  <button mat-button>Powrót do wszystkich lat</button>
+  <button (click)="navigateToAllYears()" mat-button>Powrót do wszystkich lat</button>
 </div>

@@ -1,0 +1,12 @@
+.chart-container {
+  height: 300px;
+}
+
+.pie-chart-container {
+  height: 500px;
+}
+
+.pie-label {
+  font-size: 20px !important;
+  stroke: red;
+}

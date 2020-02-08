@@ -23,4 +23,8 @@ export class YearSelectorComponent implements OnInit {
   navigateToYear(event) {
     this.router.navigate([environment.weatherPath + '/' + this.selectedCity.technicalId + '/' + event]);
   }
+
+  navigateToAllYears() {
+    this.router.navigate([environment.weatherPath + '/' + this.selectedCity.technicalId]);
+  }
 }

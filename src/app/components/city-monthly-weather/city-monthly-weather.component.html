@@ -1,4 +1,109 @@
 <app-search-bar *ngIf="city" [selectedCityName]="city.name"></app-search-bar>
-<div class="container" *ngIf="city"> <!-- update with weather data -->
+<div class="container" *ngIf="yearlyWeatherData"> <!-- update with weather data -->
   <app-year-selector [selectedYear]="year" [selectedCity]="city" [yearOptions]="yearOptions"></app-year-selector>
+  <div class="row chart-container" *ngIf="maxTemperatureChartData.allDataExists">
+    <ngx-charts-bar-vertical
+      [view]=""
+      [results]="maxTemperatureChartData.data"
+      [xAxis]="xAxis"
+      [yAxis]="yAxis"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      xAxisLabel="Miesiąc"
+      yAxisLabel="Temperatura maksymalna &deg;C">
+    </ngx-charts-bar-vertical>
+  </div>
+  <div class="row chart-container" *ngIf="minTemperatureChartData.allDataExists">
+    <ngx-charts-bar-vertical
+      [view]=""
+      [results]="minTemperatureChartData.data"
+      [xAxis]="xAxis"
+      [yAxis]="yAxis"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      xAxisLabel="Miesiąc"
+      yAxisLabel="Temperatura minimalna &deg;C">
+    </ngx-charts-bar-vertical>
+  </div>
+  <div class="row chart-container" *ngIf="avgTemperatureChartData.allDataExists">
+    <ngx-charts-bar-vertical
+      [view]=""
+      [results]="avgTemperatureChartData.data"
+      [xAxis]="xAxis"
+      [yAxis]="yAxis"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      xAxisLabel="Miesiąc"
+      yAxisLabel="Średnia temperatura &deg;C">
+    </ngx-charts-bar-vertical>
+  </div>
+  <div class="row chart-container" *ngIf="maxSnowHeightChartData.allDataExists">
+    <ngx-charts-bar-vertical
+      [view]=""
+      [results]="maxSnowHeightChartData.data"
+      [xAxis]="xAxis"
+      [yAxis]="yAxis"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      xAxisLabel="Miesiąc"
+      yAxisLabel="Max. wysokość pokrywy śnieżnej (cm)">
+    </ngx-charts-bar-vertical>
+  </div>
+  <div class="row chart-container" *ngIf="daysWithSnowChartData.allDataExists">
+    <ngx-charts-bar-vertical
+      [view]=""
+      [results]="daysWithSnowChartData.data"
+      [xAxis]="xAxis"
+      [yAxis]="yAxis"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      xAxisLabel="Miesiąc"
+      yAxisLabel="Dni z opadami śniegu">
+    </ngx-charts-bar-vertical>
+  </div>
+  <div class="row chart-container" *ngIf="rainfallAmountChartData.allDataExists">
+    <ngx-charts-bar-vertical
+      [view]=""
+      [results]="rainfallAmountChartData.data"
+      [xAxis]="xAxis"
+      [yAxis]="yAxis"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      xAxisLabel="Miesiąc"
+      yAxisLabel="Ilość opadów (mm)">
+    </ngx-charts-bar-vertical>
+  </div>
+  <div class="row chart-container" *ngIf="daysWithRainChartData.allDataExists">
+    <ngx-charts-bar-vertical
+      [view]=""
+      [results]="daysWithRainChartData.data"
+      [xAxis]="xAxis"
+      [yAxis]="yAxis"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      xAxisLabel="Miesiąc"
+      yAxisLabel="Dni z opadami deszczu">
+    </ngx-charts-bar-vertical>
+  </div>
+  <!-- This section is commented until ngx-chart will have pie-chart height fixed -->
+  <!--  <div class="row pie-chart-container" *ngIf="daysWithRainPieChartData.allDataExists">-->
+  <!--    <ngx-charts-pie-chart-->
+  <!--      [view]=""-->
+  <!--      [results]="daysWithRainPieChartData.data"-->
+  <!--      [labels]="showLabels"-->
+  <!--      [legend]="showLegend"-->
+  <!--      [trimLabels]="trimLabels"-->
+  <!--    >-->
+  <!--    </ngx-charts-pie-chart>-->
+  <!--  </div>-->
+  <!--  <div class="row pie-chart-container" *ngIf="daysWithSnowPieChartData.allDataExists">-->
+  <!--    <ngx-charts-pie-chart-->
+  <!--      [view]=""-->
+  <!--      [results]="daysWithSnowPieChartData.data"-->
+  <!--      [labels]="showLabels"-->
+  <!--      [legend]="showLegend"-->
+  <!--      [trimLabels]="trimLabels"-->
+  <!--    >-->
+  <!--    </ngx-charts-pie-chart>-->
+  <!--  </div>-->
 </div>
