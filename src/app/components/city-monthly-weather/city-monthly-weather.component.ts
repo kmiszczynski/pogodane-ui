@@ -100,6 +100,7 @@ export class CityMonthlyWeatherComponent implements OnInit {
         value: monthData[yProperty]
       });
     });
+    result.allDataExists = !(result.data.every(entry => entry.value === 0));
     return result;
   }
 
