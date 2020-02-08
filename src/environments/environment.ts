@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:8080/',
+  apiBaseUrl: 'http://46.41.136.142:8080/',
   citiesApiPath: 'cities',
   cityApiPath: 'city',
   weatherApiPath: 'weather',
